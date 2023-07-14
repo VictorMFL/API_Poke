@@ -8,8 +8,6 @@ const App = () => {
   useEffect(() => {
     getApi();
   }, []);
-
-  // Utilize os dados da API em seu componente
   console.log(data);
 
   if (data === null) return <p>Carrengando...</p>;
