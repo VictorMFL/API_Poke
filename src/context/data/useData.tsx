@@ -14,11 +14,10 @@ type DataContextProps = {
 
 const DataContext = createContext({} as DataContextProps);
 
-const apiUrl = "https://pokeapi.co/api/v2/pokemon";
+const apiUrl = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20";
 
 export const DataProvider = ({ children }: { children: React.ReactNode }) => {
   const [data, setData] = useState<DataProps[] | null>(null);
-  const [next, setNext] = useState<string | null>(null);
 
   const getApi = async () => {
     try {
