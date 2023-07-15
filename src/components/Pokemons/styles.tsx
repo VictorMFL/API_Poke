@@ -41,4 +41,5 @@ export const Contrast = styled.span`
   width: 100%;
   height: 40%;
   background-color: ${(props) => props.theme.colors.grayscale.background};
+  border-radius: 8px;
 `;

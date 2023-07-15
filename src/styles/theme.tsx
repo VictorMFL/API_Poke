@@ -1,6 +1,7 @@
 const theme = {
   colors: {
     grayscale: {
+      primary: "#DC0A2D",
       dark: "#212121",
       medium: "#666666",
       light: "#E0E0E0",

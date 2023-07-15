@@ -29,7 +29,7 @@ const Pokemons = ({ url }: { url: string }) => {
   return (
     <>
       {data.map((res) => (
-        <S.Container>
+        <S.Container key={res.id}>
           <S.Paragraph>#{res.id}</S.Paragraph>
           <S.Img src={res.sprites.front_default} />
           <S.Name>{res.name}</S.Name>
