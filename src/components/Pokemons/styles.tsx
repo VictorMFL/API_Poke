@@ -12,6 +12,7 @@ export const Container = styled.div`
   padding: 4px 8px 0 8px;
   box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
   font-family: ${(props) => props.theme.fonts.poppins};
+  cursor: pointer;
 `;
 
 export const Paragraph = styled.p`

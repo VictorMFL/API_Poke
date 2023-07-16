@@ -1,5 +1,4 @@
 import ReactDOM from "react-dom/client";
-import App from "./App";
 import "./index.css";
 
 // Context
@@ -9,6 +8,10 @@ import { Providers } from "./providers/Provaiders";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Page404 from "./router/page404/Page404";
 
+// Components
+import App from "./App";
+import IndividualPokemon from "./components/Pokemons/IndividualPokemon/IndividualPokemon";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -16,8 +19,8 @@ const router = createBrowserRouter([
     errorElement: <Page404 />
   },
   {
-    path: "/pokemon",
-    element: <p>GD</p>
+    path: "/pokemon/:id",
+    element: <IndividualPokemon />
   }
 ]);
 

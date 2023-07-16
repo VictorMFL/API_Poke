@@ -1,5 +1,5 @@
 // icone da Pokebola
-import Poke from "../../../public/pokebola.svg";
+import Poke from "/pokebola.svg";
 import { useGridPokemons } from "../../context/gridPokemons/GridPokemons";
 
 // Style

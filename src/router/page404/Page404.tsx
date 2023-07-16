@@ -2,7 +2,7 @@
 import * as S from "./styles";
 
 // Icone
-import NumberFour from "../../../public/number_four.svg";
+import NumberFour from "/number_four.svg";
 
 import { useNavigate } from "react-router-dom";
 
