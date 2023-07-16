@@ -7,6 +7,9 @@ const theme = {
       light: "#E0E0E0",
       background: "#EFEFEF",
       white: "#FFFFFF",
+      blue: "#151557",
+      blueDark: "#000013",
+      blueLight: "#212187",
     },
     pokemonType: {
       bug: "#A7B723",
@@ -30,7 +33,8 @@ const theme = {
     },
   },
   fonts: {
-    poppins: "Poppins"
+    poppins: "Poppins",
+    outfit: "Outfit"
   }
 };
 

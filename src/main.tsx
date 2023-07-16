@@ -5,14 +5,24 @@ import "./index.css";
 // Context
 import { Providers } from "./providers/Provaiders";
 
-// Config do Styled-components
-import { ThemeProvider } from "styled-components";
-import theme from "./styles/theme";
+// Config do react-router-dom
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Page404 from "./router/page404/Page404";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <Page404 />
+  },
+  {
+    path: "/pokemon",
+    element: <p>GD</p>
+  }
+]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <Providers>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
+    <RouterProvider router={router} />
   </Providers>
 );
