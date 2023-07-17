@@ -10,6 +10,7 @@ import Pokemons from "../Pokemons/Pokemons";
 // Style
 import * as S from "./styles"
 
+// Config do styled-components para aceitar a propriedade passada 
 import { StyleSheetManager } from 'styled-components';
 
 const MainPage = () => {
