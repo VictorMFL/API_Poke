@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 import axios from "axios";
 
@@ -14,7 +14,7 @@ type DataContextProps = {
 
 const DataContext = createContext({} as DataContextProps);
 
-const apiUrl = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20";
+let apiUrl = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20";
 
 export const DataProvider = ({ children }: { children: React.ReactNode }) => {
   const [data, setData] = useState<DataProps[] | null>(null);
@@ -31,7 +31,7 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
   const nextPage = async () => {
     const nextPage = data?.map((item) => item.next);
     if (nextPage === null) {
-      alert("null");
+      null;
     } else {
       try {
         const response = await axios.get(String(nextPage));
@@ -44,14 +44,14 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
 
   const previousPage = async () => {
     const previousPage = data?.map((item) => item.previous);
-    try {
-      const response = await axios.get(String(previousPage));
-      setData([response.data]);
-      console.log(previousPage);
-    } catch (error) {
-      console.log(error);
-      if (error instanceof axios.AxiosError && error.config?.url === "") {
-        alert("Acabou!");
+    if (previousPage === null) {
+      null;
+    } else {
+      try {
+        const response = await axios.get(String(previousPage));
+        setData([response.data]);
+      } catch (error) {
+        console.log(error);
       }
     }
   };

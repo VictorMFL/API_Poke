@@ -17,10 +17,10 @@ const MainPage = () => {
   const { data, getApi } = useDataContext();
 
   useEffect(() => {
-    getApi();
-  }, []);
-
-  console.log(data);
+    if (data === null) {
+      getApi();
+    }
+  }, [data]);
 
   const {numberGrid} = useGridPokemons()
 

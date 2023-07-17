@@ -23,14 +23,15 @@ const IndividualPokemon = () => {
   const get = async () => {
     // Pega o id do pokemon no localStorage para fazer a chamada para a APi
     setNumPokemon(Number(window.localStorage.getItem("Pokemon")));
-    try {
-      const response = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${numPokemon}/`
-      );
-      console.log(response.data);
-      setData([response.data]);
-    } catch (error) {
-      console.log(error);
+    if(numPokemon) {
+      try {
+        const response = await axios.get(
+          `https://pokeapi.co/api/v2/pokemon/${numPokemon}/`
+        );
+        setData([response.data]);
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 

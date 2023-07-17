@@ -32,7 +32,7 @@ export const Pokemon = styled.div<ColorPokemonProps>`
       ? props.theme.colors.pokemonType.dark
       : props.bg === "dragon"
       ? props.theme.colors.pokemonType.dragon
-      : props.bg === "eletric"
+      : props.bg === "electric"
       ? props.theme.colors.pokemonType.eletric
       : props.bg === "fairy"
       ? props.theme.colors.pokemonType.fairy
@@ -143,7 +143,7 @@ export const Type = styled.span<ColorPokemonProps>`
       ? props.theme.colors.pokemonType.dark
       : props.bg === "dragon"
       ? props.theme.colors.pokemonType.dragon
-      : props.bg === "eletric"
+      : props.bg === "electric"
       ? props.theme.colors.pokemonType.eletric
       : props.bg === "fairy"
       ? props.theme.colors.pokemonType.fairy
@@ -186,7 +186,7 @@ export const TitleAbout = styled.h1<ColorPokemonProps>`
       ? props.theme.colors.pokemonType.dark
       : props.bg === "dragon"
       ? props.theme.colors.pokemonType.dragon
-      : props.bg === "eletric"
+      : props.bg === "electric"
       ? props.theme.colors.pokemonType.eletric
       : props.bg === "fairy"
       ? props.theme.colors.pokemonType.fairy
@@ -303,7 +303,7 @@ export const StatsTitle = styled.div<ColorPokemonProps>`
       ? props.theme.colors.pokemonType.dark
       : props.bg === "dragon"
       ? props.theme.colors.pokemonType.dragon
-      : props.bg === "eletric"
+      : props.bg === "electric"
       ? props.theme.colors.pokemonType.eletric
       : props.bg === "fairy"
       ? props.theme.colors.pokemonType.fairy
@@ -369,7 +369,7 @@ export const Percent = styled.div<ColorPokemonProps>`
       ? props.theme.colors.pokemonType.dark
       : props.bg === "dragon"
       ? props.theme.colors.pokemonType.dragon
-      : props.bg === "eletric"
+      : props.bg === "electric"
       ? props.theme.colors.pokemonType.eletric
       : props.bg === "fairy"
       ? props.theme.colors.pokemonType.fairy
