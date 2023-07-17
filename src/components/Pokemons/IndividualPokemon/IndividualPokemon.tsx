@@ -16,13 +16,13 @@ import { StyleSheetManager } from "styled-components";
 
 const IndividualPokemon = () => {
   const [data, setData] = useState<PokemonProps[] | null>(null);
-
-  // Pega o id do pokemon no localStorage para fazer a chamada para a APi
-  const numPokemon = window.localStorage.getItem("Pokemon");
+  const [numPokemon, setNumPokemon] = useState<null | number>(null);
 
   const navigate = useNavigate();
 
   const get = async () => {
+    // Pega o id do pokemon no localStorage para fazer a chamada para a APi
+    setNumPokemon(Number(window.localStorage.getItem("Pokemon")));
     try {
       const response = await axios.get(
         `https://pokeapi.co/api/v2/pokemon/${numPokemon}/`
@@ -34,13 +34,27 @@ const IndividualPokemon = () => {
     }
   };
 
+  const previousPokemon = () => {
+    if (numPokemon !== null) {
+      const novo = window.localStorage.setItem("Pokemon", String(numPokemon - 1));
+      setNumPokemon(Number(novo))
+    }
+  };
+
+  const nextPokemon = () => {
+    if (numPokemon !== null) {
+      const novo = window.localStorage.setItem("Pokemon", String(numPokemon + 1));
+      setNumPokemon(Number(novo))
+    }
+  };
+
   const handleHomeClick = () => {
     navigate("/");
   };
 
   useEffect(() => {
     get();
-  }, []);
+  }, [numPokemon]);
 
   if (data === null) return null;
   return (
@@ -65,14 +79,16 @@ const IndividualPokemon = () => {
               />
 
               <S.ContainerImgPokemon>
-                <S.Icon
+                {numPokemon && numPokemon > 1 ? <S.Icon
                   src="/previous_pokemon.svg"
                   alt="seta para voltar para outro pokémon"
-                />
+                  onClick={previousPokemon}
+                /> : <span></span> }
                 <S.ImgPokemon src={res.sprites.front_default} />
                 <S.Icon
                   src="/next_pokemon.svg"
                   alt="seta para passar para outro pokémon"
+                  onClick={nextPokemon}
                 />
               </S.ContainerImgPokemon>
 
