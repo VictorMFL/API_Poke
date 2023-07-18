@@ -60,6 +60,16 @@ export const ButtonSearch = styled.button`
   border: none;
 `;
 
+export const CloseSearch = styled.img`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+`;
+
 export const Select = styled.select`
   border-radius: 1rem;
   box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.25) inset;
@@ -73,3 +83,27 @@ export const Select = styled.select`
 `;
 
 export const Options = styled.option``;
+
+export const ContainerSearch = styled.div`
+  position: absolute;
+  right: 1rem;
+  width: 400px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 1rem;
+  background-color: ${(props) => props.theme.colors.grayscale.dark};
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  z-index: 1000;
+  gap: 1rem;
+`;
+
+export const Search = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const PokemonLink = styled.a`
+  color: #fff;
+`

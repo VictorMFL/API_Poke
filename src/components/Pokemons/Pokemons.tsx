@@ -28,7 +28,7 @@ const Pokemons = ({ url }: { url: string }) => {
 
   const handleClick = (id: number, name: string): void => {
     navigate(`/pokemon/${name}`);
-    window.localStorage.setItem("Pokemon", String(id)); // COloca o id do Pokémon no localStorage
+    window.localStorage.setItem("Pokemon", String(id)); // Coloca o id do Pokémon no localStorage
   };
 
   useEffect(() => {
