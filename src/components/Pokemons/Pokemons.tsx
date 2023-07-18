@@ -10,6 +10,7 @@ import * as S from "./styles";
 
 // Rotas
 import { useNavigate } from "react-router-dom";
+import LoadingPokemon from "../loading/pokemon/LoadingPokemon";
 
 const Pokemons = ({ url }: { url: string }) => {
   const [data, setData] = useState<PokemonProps[] | null>(null);
@@ -35,7 +36,7 @@ const Pokemons = ({ url }: { url: string }) => {
     get();
   }, []);
 
-  if (data === null) return <p>Carregando...</p>;
+  if (data === null) return <LoadingPokemon />;
   return (
     <>
       {data.map((res) => (

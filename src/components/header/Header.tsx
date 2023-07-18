@@ -5,6 +5,7 @@ import Poke from "/pokebola.svg";
 
 // Context
 import { useGridPokemons } from "../../context/gridPokemons/GridPokemons";
+import { useDataContext } from "../../context/data/useData";
 
 // Hook com os dados de 1000 Pokémons
 import useAllPokemons from "../../hooks/useAllPokemons";
@@ -14,7 +15,6 @@ import Pokemons from "../Pokemons/Pokemons";
 
 // Style
 import * as S from "./styles";
-import { useDataContext } from "../../context/data/useData";
 
 const Header = () => {
   const [search, setSearch] = useState<string>("");

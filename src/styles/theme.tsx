@@ -31,11 +31,16 @@ const theme = {
       steel: "#B7B9D0",
       water: "#6493EB",
     },
+    loading: {
+      gray100: "#e0e0e0",
+      gray200: "#ccc",
+      red: "#ff1a1a",
+    },
   },
   fonts: {
     poppins: "Poppins",
-    outfit: "Outfit"
-  }
+    outfit: "Outfit",
+  },
 };
 
 export default theme;
