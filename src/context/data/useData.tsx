@@ -10,14 +10,17 @@ type DataContextProps = {
   getApi: () => void;
   nextPage: () => Promise<void>;
   previousPage: () => Promise<void>;
+  setPokemonLimit: React.Dispatch<React.SetStateAction<string>>;
+  pokemonLimit: string
 };
 
 const DataContext = createContext({} as DataContextProps);
 
-let apiUrl = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20";
-
 export const DataProvider = ({ children }: { children: React.ReactNode }) => {
   const [data, setData] = useState<DataProps[] | null>(null);
+  const [pokemonLimit, setPokemonLimit] = useState<string>('20');
+
+  let apiUrl = `https://pokeapi.co/api/v2/pokemon?offset=0&limit=${pokemonLimit}`;
 
   const getApi = async () => {
     try {
@@ -57,7 +60,9 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <DataContext.Provider value={{ data, getApi, nextPage, previousPage }}>
+    <DataContext.Provider
+      value={{ data, getApi, nextPage, previousPage, setPokemonLimit, pokemonLimit }}
+    >
       {children}
     </DataContext.Provider>
   );

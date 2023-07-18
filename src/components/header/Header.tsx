@@ -1,4 +1,4 @@
-import { useState, useRef, ChangeEvent, FormEvent } from "react";
+import { useState, useRef, ChangeEvent, FormEvent, useEffect } from "react";
 
 // icone da Pokebola
 import Poke from "/pokebola.svg";
@@ -9,27 +9,27 @@ import { useGridPokemons } from "../../context/gridPokemons/GridPokemons";
 // Hook com os dados de 1000 Pokémons
 import useAllPokemons from "../../hooks/useAllPokemons";
 
-// Rota
-import { useNavigate } from "react-router-dom";
-
 // Resultado mostrado na pesquisa
 import Pokemons from "../Pokemons/Pokemons";
 
 // Style
 import * as S from "./styles";
+import { useDataContext } from "../../context/data/useData";
 
 const Header = () => {
   const [search, setSearch] = useState<string>("");
   const { numberGrid, handleSelectChange } = useGridPokemons();
-
-  const navigate = useNavigate()
+  const { pokemonLimit, setPokemonLimit, getApi } = useDataContext();
 
   const { AllPokemons } = useAllPokemons();
 
-  console.log(AllPokemons);
-
   const handleSearchChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
     setSearch(target.value);
+  };
+
+  const pokemonLimitChange = ({ target }: ChangeEvent<HTMLSelectElement>) => {
+    setPokemonLimit(target.value);
+    console.log(pokemonLimit)
   };
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -48,8 +48,12 @@ const Header = () => {
     });
 
   const submitSearch = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-  } 
+    event.preventDefault();
+  };
+
+  useEffect(() => {
+    getApi()
+  }, [pokemonLimit])
 
   return (
     <>
@@ -81,6 +85,13 @@ const Header = () => {
             <S.Options value={2}>2 Colunas</S.Options>
             <S.Options value={3}>3 Colunas</S.Options>
             <S.Options value={4}>4 Colunas</S.Options>
+          </S.Select>
+
+          <S.Select value={pokemonLimit} onChange={pokemonLimitChange}>
+            <S.Options value='20'>Limite: 20</S.Options>
+            <S.Options value='30'>Limite: 30</S.Options>
+            <S.Options value='40'>Limite: 40</S.Options>
+            <S.Options value='50'>Limite: 50</S.Options>
           </S.Select>
         </S.Container>
       </S.Header>
