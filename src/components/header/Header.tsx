@@ -19,7 +19,7 @@ import * as S from "./styles";
 const Header = () => {
   const [search, setSearch] = useState<string>("");
   const { numberGrid, handleSelectChange } = useGridPokemons();
-  const { pokemonLimit, setPokemonLimit, getApi } = useDataContext();
+  const { pokemonLimit, setPokemonLimit } = useDataContext();
 
   const { AllPokemons } = useAllPokemons();
 
@@ -33,7 +33,7 @@ const Header = () => {
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  function clearSearch() {
+  function clearSearch() {''
     setSearch("");
     if (inputRef.current) {
       inputRef.current.value = "";
@@ -49,10 +49,6 @@ const Header = () => {
   const submitSearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
-
-  useEffect(() => {
-    getApi()
-  }, [pokemonLimit])
 
   return (
     <>

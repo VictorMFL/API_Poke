@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, ChangeEvent, useEffect } from "react";
 
 import axios from "axios";
 
@@ -13,8 +13,8 @@ type DataContextProps = {
   getApi: () => void;
   nextPage: () => Promise<void>;
   previousPage: () => Promise<void>;
-  setPokemonLimit: React.Dispatch<React.SetStateAction<string>>;
   pokemonLimit: string;
+  setPokemonLimit: React.Dispatch<React.SetStateAction<string>>
 };
 
 const DataContext = createContext({} as DataContextProps);
@@ -66,6 +66,11 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
+  // Atualiza a requisição de acordo como a quantidade que o usuário definir
+  useEffect(() => {
+    getApi()
+  }, [pokemonLimit])
+
   if (error) return <DataError />;
   return (
     <DataContext.Provider
@@ -74,8 +79,8 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
         getApi,
         nextPage,
         previousPage,
-        setPokemonLimit,
         pokemonLimit,
+        setPokemonLimit,
       }}
     >
       {children}
