@@ -1,8 +1,8 @@
 import { useState, useRef, ChangeEvent, FormEvent } from "react";
 
-// icone da Pokebola
+// Icones
 import Poke from "../../../public/pokebola.svg";
-import CloseSearch from "../../../public/close.svg";
+import Close from "../../../public/close.svg";
 
 // Context
 import { useGridPokemons } from "../../context/gridPokemons/GridPokemons";
@@ -70,7 +70,7 @@ const Header = () => {
             <S.ButtonSearch />
             {search !== "" ? (
               <S.CloseSearch
-                src={CloseSearch}
+                src={Close}
                 alt="icone para limpar a barra de pesquisa"
                 onClick={clearSearch}
               />
