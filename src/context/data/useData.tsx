@@ -5,20 +5,24 @@ import axios from "axios";
 // Props dos dados da API
 import { DataProps } from "../../interface/interface";
 
+// Caso ocorra um erro na requisição
+import DataError from "../../components/dataError/DataError";
+
 type DataContextProps = {
   data: DataProps[] | null;
   getApi: () => void;
   nextPage: () => Promise<void>;
   previousPage: () => Promise<void>;
   setPokemonLimit: React.Dispatch<React.SetStateAction<string>>;
-  pokemonLimit: string
+  pokemonLimit: string;
 };
 
 const DataContext = createContext({} as DataContextProps);
 
 export const DataProvider = ({ children }: { children: React.ReactNode }) => {
   const [data, setData] = useState<DataProps[] | null>(null);
-  const [pokemonLimit, setPokemonLimit] = useState<string>('20');
+  const [error, setError] = useState<boolean>(false);
+  const [pokemonLimit, setPokemonLimit] = useState<string>("20");
 
   let apiUrl = `https://pokeapi.co/api/v2/pokemon?offset=0&limit=${pokemonLimit}`;
 
@@ -28,6 +32,7 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
       setData([response.data]);
     } catch (error) {
       console.log(error);
+      setError(true);
     }
   };
 
@@ -41,6 +46,7 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
         setData([response.data]);
       } catch (error) {
         console.log(error);
+        setError(true);
       }
     }
   };
@@ -55,13 +61,22 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
         setData([response.data]);
       } catch (error) {
         console.log(error);
+        setError(true);
       }
     }
   };
 
+  if (error) return <DataError />;
   return (
     <DataContext.Provider
-      value={{ data, getApi, nextPage, previousPage, setPokemonLimit, pokemonLimit }}
+      value={{
+        data,
+        getApi,
+        nextPage,
+        previousPage,
+        setPokemonLimit,
+        pokemonLimit,
+      }}
     >
       {children}
     </DataContext.Provider>

@@ -14,16 +14,20 @@ import { useNavigate } from "react-router-dom";
 // Config do Styled-components para aceitar a propriedade passada
 import { StyleSheetManager } from "styled-components";
 
+// Caso ocorra um erro na requisição
+import DataError from "../../dataError/DataError";
+
 const IndividualPokemon = () => {
   const [data, setData] = useState<PokemonProps[] | null>(null);
   const [numPokemon, setNumPokemon] = useState<null | number>(null);
+  const [error, setError] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
   const get = async () => {
     // Pega o id do pokemon no localStorage para fazer a chamada para a APi
     setNumPokemon(Number(window.localStorage.getItem("Pokemon")));
-    if(numPokemon) {
+    if (numPokemon) {
       try {
         const response = await axios.get(
           `https://pokeapi.co/api/v2/pokemon/${numPokemon}/`
@@ -31,21 +35,28 @@ const IndividualPokemon = () => {
         setData([response.data]);
       } catch (error) {
         console.log(error);
+        setError(true);
       }
     }
   };
 
   const previousPokemon = () => {
     if (numPokemon !== null) {
-      const novo = window.localStorage.setItem("Pokemon", String(numPokemon - 1));
-      setNumPokemon(Number(novo))
+      const novo = window.localStorage.setItem(
+        "Pokemon",
+        String(numPokemon - 1)
+      );
+      setNumPokemon(Number(novo));
     }
   };
 
   const nextPokemon = () => {
     if (numPokemon !== null) {
-      const novo = window.localStorage.setItem("Pokemon", String(numPokemon + 1));
-      setNumPokemon(Number(novo))
+      const novo = window.localStorage.setItem(
+        "Pokemon",
+        String(numPokemon + 1)
+      );
+      setNumPokemon(Number(novo));
     }
   };
 
@@ -57,6 +68,7 @@ const IndividualPokemon = () => {
     get();
   }, [numPokemon]);
 
+  if (error) return <DataError />;
   if (data === null) return null;
   return (
     <>
@@ -80,11 +92,15 @@ const IndividualPokemon = () => {
               />
 
               <S.ContainerImgPokemon>
-                {numPokemon && numPokemon > 1 ? <S.Icon
-                  src="/previous_pokemon.svg"
-                  alt="seta para voltar para outro pokémon"
-                  onClick={previousPokemon}
-                /> : <span></span> }
+                {numPokemon && numPokemon > 1 ? (
+                  <S.Icon
+                    src="/previous_pokemon.svg"
+                    alt="seta para voltar para outro pokémon"
+                    onClick={previousPokemon}
+                  />
+                ) : (
+                  <span></span>
+                )}
                 <S.ImgPokemon src={res.sprites.front_default} />
                 <S.Icon
                   src="/next_pokemon.svg"

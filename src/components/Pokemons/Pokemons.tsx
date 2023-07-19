@@ -10,10 +10,16 @@ import * as S from "./styles";
 
 // Rotas
 import { useNavigate } from "react-router-dom";
+
+// Tela de carregamento
 import LoadingPokemon from "../loading/pokemon/LoadingPokemon";
+
+// Caso ocorra um erro na requisição
+import DataError from "../dataError/DataError";
 
 const Pokemons = ({ url }: { url: string }) => {
   const [data, setData] = useState<PokemonProps[] | null>(null);
+  const [error, setError] = useState<boolean>(false);
 
   // Função para mudar a rota
   const navigate = useNavigate();
@@ -24,6 +30,7 @@ const Pokemons = ({ url }: { url: string }) => {
       setData([response.data]);
     } catch (error) {
       console.log(error);
+      setError(true);
     }
   };
 
@@ -36,6 +43,7 @@ const Pokemons = ({ url }: { url: string }) => {
     get();
   }, []);
 
+  if (error) return <DataError />;
   if (data === null) return <LoadingPokemon />;
   return (
     <>

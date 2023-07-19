@@ -1,11 +1,7 @@
 import * as S from "./styles";
 
 const LoadingPokemon = () => {
-  return (
-    <S.SkeletonPokemon>
-      
-    </S.SkeletonPokemon>
-  )
-}
+  return <S.SkeletonPokemon></S.SkeletonPokemon>;
+};
 
-export default LoadingPokemon
+export default LoadingPokemon;
