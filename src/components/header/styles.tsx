@@ -73,7 +73,7 @@ export const ButtonSearch = styled.button`
   height: 20px;
   cursor: pointer;
   background-color: transparent;
-  background-image: url(/search.svg);
+  background-image: url(../../../public//search.svg);
   background-size: cover;
   background-repeat: no-repeat;
   border: none;
