@@ -2,6 +2,14 @@ import { useEffect, useState } from "react";
 
 import axios from "axios";
 
+// Icones
+import ArrowBack from '../../../../public/arrow_back.svg'
+import BigPokebola from '../../../../public/big_pokebola.svg'
+import PreviousPokemon from '../../../../public/previous_pokemon.svg'
+import NextPokemon from '../../../../public/next_pokemon.svg'
+import Weight from '../../../../public/weight.svg'
+import Height from '../../../../public/height.svg'
+
 // Props
 import { PokemonProps } from "../../../interface/interface";
 
@@ -78,7 +86,7 @@ const IndividualPokemon = () => {
             <S.Pokemon bg={data.map((i) => i.types[0].type.name)[0]}>
               <S.ContainerTitle>
                 <S.Icon
-                  src="/arrow_back.svg"
+                  src={ArrowBack}
                   alt="seta para voltar para a página principal"
                   onClick={handleHomeClick}
                 />
@@ -87,14 +95,14 @@ const IndividualPokemon = () => {
               </S.ContainerTitle>
 
               <S.BigPokebola
-                src="/big_pokebola.svg"
+                src={BigPokebola}
                 alt="Imagem de uma pokebola bem grande"
               />
 
               <S.ContainerImgPokemon>
                 {numPokemon && numPokemon > 1 ? (
                   <S.Icon
-                    src="/previous_pokemon.svg"
+                    src={PreviousPokemon}
                     alt="seta para voltar para outro pokémon"
                     onClick={previousPokemon}
                   />
@@ -103,7 +111,7 @@ const IndividualPokemon = () => {
                 )}
                 <S.ImgPokemon src={res.sprites.front_default} />
                 <S.Icon
-                  src="/next_pokemon.svg"
+                  src={NextPokemon}
                   alt="seta para passar para outro pokémon"
                   onClick={nextPokemon}
                 />
@@ -126,7 +134,7 @@ const IndividualPokemon = () => {
                   <S.WeightAndHeight>
                     <S.ContentWeightAndHeight>
                       <S.IconWeightAndHeight
-                        src="/weight.svg"
+                        src={Weight}
                         alt="Icone que representa o peso"
                       />
                       <S.Paragraph>{res.weight} kg</S.Paragraph>
@@ -137,7 +145,7 @@ const IndividualPokemon = () => {
                   <S.WeightAndHeight>
                     <S.ContentWeightAndHeight>
                       <S.IconWeightAndHeight
-                        src="/height.svg"
+                        src={Height}
                         alt="Icone que representa o peso"
                       />
                       <S.Paragraph>{res.height} m</S.Paragraph>
