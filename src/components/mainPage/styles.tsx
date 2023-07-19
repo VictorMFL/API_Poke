@@ -22,4 +22,15 @@ export const Container = styled.main<ContainerProps>`
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.25) inset;
+
+  @media (max-width: 770px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 450px) {
+    padding: 1rem;
+    gap: 8px;
+  }
 `;

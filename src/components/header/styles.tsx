@@ -6,6 +6,9 @@ export const Header = styled.header`
   align-items: center;
   padding: 12px 12px 24px 12px;
   font-family: ${(props) => props.theme.fonts.poppins};
+  @media (max-width:500px) {
+    padding: 6px 6px 12px 6px;
+  }
 `;
 
 export const Container = styled.div`
@@ -17,12 +20,21 @@ export const Container = styled.div`
 export const IconPokeball = styled.img`
   width: 40px;
   height: 40px;
+
+  @media (max-width:500px) {
+    display: none;
+  }
 `;
 
 export const Title = styled.h1`
   color: ${(props) => props.theme.colors.grayscale.white};
   font-size: 1.5rem;
   font-weight: 700;
+
+  @media (max-width:430px) {
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
 `;
 
 export const Form = styled.form`
@@ -42,6 +54,13 @@ export const Input = styled.input`
 
   &:focus {
     border: 1px solid ${(props) => props.theme.colors.grayscale.dark};
+  }
+
+  @media (max-width:600px) {
+    width: 150px;
+  }
+  @media (max-width:400px) {
+    width: 100px;
   }
 `;
 
@@ -70,7 +89,7 @@ export const CloseSearch = styled.img`
   cursor: pointer;
 `;
 
-export const Select = styled.select`
+export const SelectCol = styled.select`
   border-radius: 1rem;
   box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.25) inset;
   padding: 0.5rem;
@@ -80,7 +99,16 @@ export const Select = styled.select`
   &:focus {
     border: 1px solid ${(props) => props.theme.colors.grayscale.dark};
   }
+
+  @media (max-width: 770px) {
+    display: none;
+  }
 `;
+
+export const SelectLimit = styled(SelectCol)`
+  @media (max-width: 770px) {
+    display: block;
+  }`;
 
 export const Options = styled.option``;
 

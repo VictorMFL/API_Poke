@@ -13,6 +13,10 @@ export const Container = styled.div`
   box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
   font-family: ${(props) => props.theme.fonts.poppins};
   cursor: pointer;
+
+  @media (max-width: 400px) {
+    max-width: 140px;
+  }
 `;
 
 export const Paragraph = styled.p`

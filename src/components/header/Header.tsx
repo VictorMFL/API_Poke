@@ -29,7 +29,6 @@ const Header = () => {
 
   const pokemonLimitChange = ({ target }: ChangeEvent<HTMLSelectElement>) => {
     setPokemonLimit(target.value);
-    console.log(pokemonLimit)
   };
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -80,19 +79,19 @@ const Header = () => {
               />
             ) : null}
           </S.Form>
-          <S.Select value={numberGrid} onChange={handleSelectChange}>
+          <S.SelectCol value={numberGrid} onChange={handleSelectChange}>
             <S.Options value={1}>1 Coluna</S.Options>
             <S.Options value={2}>2 Colunas</S.Options>
             <S.Options value={3}>3 Colunas</S.Options>
             <S.Options value={4}>4 Colunas</S.Options>
-          </S.Select>
+          </S.SelectCol>
 
-          <S.Select value={pokemonLimit} onChange={pokemonLimitChange}>
+          <S.SelectLimit value={pokemonLimit} onChange={pokemonLimitChange}>
             <S.Options value='20'>Limite: 20</S.Options>
             <S.Options value='30'>Limite: 30</S.Options>
             <S.Options value='40'>Limite: 40</S.Options>
             <S.Options value='50'>Limite: 50</S.Options>
-          </S.Select>
+          </S.SelectLimit>
         </S.Container>
       </S.Header>
       {search !== "" ? (

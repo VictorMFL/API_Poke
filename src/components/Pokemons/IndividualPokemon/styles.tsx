@@ -59,6 +59,10 @@ export const Pokemon = styled.div<ColorPokemonProps>`
       : props.bg === "water"
       ? props.theme.colors.pokemonType.water
       : props.theme.colors.pokemonType.normal};
+
+      @media (max-width: 400px) {
+        max-width: 100%;
+      }
 `;
 
 export const ContainerTitle = styled.div`
@@ -281,6 +285,7 @@ export const ContentMoves = styled.div`
 `;
 
 export const Stats = styled.div`
+width: 100%;
   display: grid;
   grid-template-columns: auto auto 1fr;
   gap: 0.5rem;
@@ -343,13 +348,13 @@ export const StatsNumber = styled.div`
 `;
 
 export const ContainerPercentages = styled.div`
-  width: 250px;
+  width: 100%;
   display: flex;
   flex-direction: column;
 `;
 
 export const Percentages = styled.div<ColorPokemonProps>`
-  width: 250px;
+  width: 100%;
   height: 4px;
   border-radius: 4px;
   opacity: 0.9;

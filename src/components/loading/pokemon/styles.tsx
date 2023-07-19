@@ -21,4 +21,8 @@ export const SkeletonPokemon = styled.div`
   );
   background-size: 200% 100%;
   animation: ${shimmer} 1.5s infinite;
+
+  @media (max-width: 400px) {
+    max-width: 140px;
+  }
 `;

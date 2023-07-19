@@ -8,6 +8,10 @@ export const Footer = styled.footer`
   justify-content: space-between;
   align-items: center;
   font-family: ${(props) => props.theme.fonts.poppins};
+
+  @media (max-width: 700px) {
+    padding: 1rem 2rem 0 2rem;
+  }
   `;
 
 export const Container = styled.div`
@@ -20,10 +24,22 @@ export const Icon = styled.img`
   width: 50px;
   height: 50px;
   cursor: pointer;
+
+  @media (max-width: 600px) {
+    width: 40px;
+    height: 40px;
+  }
   `;
 
 export const Title = styled.h2`
   font-weight: 700;
   color: ${(props) => props.theme.colors.grayscale.light};
   cursor: pointer;
+
+  @media (max-width:600px) {
+    font-size: 1.2rem;
+  }
+  @media (max-width:400px) {
+    display: none;
+  }
 `
