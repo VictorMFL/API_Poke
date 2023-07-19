@@ -61,7 +61,7 @@ const IndividualPokemon = () => {
   };
 
   const handleHomeClick = () => {
-    navigate("/");
+    navigate("/API_Poke");
   };
 
   useEffect(() => {

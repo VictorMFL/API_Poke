@@ -14,7 +14,7 @@ import IndividualPokemon from "./components/Pokemons/IndividualPokemon/Individua
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/API_Poke",
     element: <App />,
     errorElement: <Page404 />
   },
