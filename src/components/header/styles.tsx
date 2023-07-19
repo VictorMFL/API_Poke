@@ -124,6 +124,12 @@ export const ContainerSearch = styled.div`
   grid-template-columns: 1fr 1fr;
   z-index: 1000;
   gap: 1rem;
+
+  @media (max-width: 440px) {
+    width: 100%;
+    max-height: 80vh;
+    right: 0;
+  }
 `;
 
 export const Search = styled.div`
