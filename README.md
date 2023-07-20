@@ -6,3 +6,6 @@ Vite, React, TypeScript, Styled-components, Custom Hooks, Axios e react-router-d
 
 # Layout
 A ideia do layout do site foi pego no Figma, fiz algumas pequenas alterações.
+
+#Deploy
+[Link](https://victormfl.github.io/API_Poke/)
