@@ -7,7 +7,7 @@ export const Footer = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: ${(props) => props.theme.fonts.poppins};
+  font-family: ${(props) => props.theme.fonts?.poppins};
 
   @media (max-width: 700px) {
     padding: 1rem 2rem 0 2rem;
@@ -33,7 +33,7 @@ export const Icon = styled.img`
 
 export const Title = styled.h2`
   font-weight: 700;
-  color: ${(props) => props.theme.colors.grayscale.light};
+  color: ${(props) => props.theme.colors?.grayscale.light};
   cursor: pointer;
 
   @media (max-width:600px) {

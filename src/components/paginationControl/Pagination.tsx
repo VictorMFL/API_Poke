@@ -13,7 +13,7 @@ const PaginationControl = () => {
   return (
     <S.Footer>
       <S.Container>
-        {data !== null && data[0].previous === null ? null : (
+        {data !== null && data !== undefined && data[0].previous === null ? null : (
           <>
             <S.Icon src={PreviousPokemon} onClick={previousPage} />
             <S.Title onClick={previousPage}>Anterior</S.Title>
@@ -21,7 +21,7 @@ const PaginationControl = () => {
         )}
       </S.Container>
       <S.Container>
-        {data !== null && data[0].next === null ? null : (
+        {data !== null && data !== undefined && data[0].next === null ? null : (
           <>
             <S.Title onClick={nextPage}>Próximo</S.Title>
             <S.Icon src={NextPokemon} onClick={nextPage} />
