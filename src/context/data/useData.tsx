@@ -8,8 +8,8 @@ import { DataProps } from "../../interface/interface";
 // Caso ocorra um erro na requisição
 import DataError from "../../components/dataError/DataError";
 
-type DataContextProps = {
-  data: DataProps[] | null;
+export type DataContextProps = {
+  data?: DataProps[] | null;
   getApi: () => void;
   nextPage: () => Promise<void>;
   previousPage: () => Promise<void>;
@@ -17,7 +17,7 @@ type DataContextProps = {
   setPokemonLimit: React.Dispatch<React.SetStateAction<string>>
 };
 
-const DataContext = createContext({} as DataContextProps);
+export const DataContext = createContext({} as DataContextProps);
 
 export const DataProvider = ({ children }: { children: React.ReactNode }) => {
   const [data, setData] = useState<DataProps[] | null>(null);
