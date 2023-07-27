@@ -15,9 +15,9 @@ export const SkeletonPokemon = styled.div`
   border-radius: 8px;
   background: linear-gradient(
     to right,
-    ${(props) => props.theme.colors.loading.gray200},
-    ${(props) => props.theme.colors.loading.gray100},
-    ${(props) => props.theme.colors.loading.gray200}
+    ${(props) => props.theme.colors?.loading.gray200},
+    ${(props) => props.theme.colors?.loading.gray100},
+    ${(props) => props.theme.colors?.loading.gray200}
   );
   background-size: 200% 100%;
   animation: ${shimmer} 1.5s infinite;
