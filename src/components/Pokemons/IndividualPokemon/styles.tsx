@@ -11,8 +11,8 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${(props) => props.theme.colors.grayscale.white};
-  font-family: ${(props) => props.theme.fonts.poppins};
+  background-color: ${(props) => props.theme.colors?.grayscale.white};
+  font-family: ${(props) => props.theme.fonts?.poppins};
 `;
 
 export const Pokemon = styled.div<ColorPokemonProps>`
@@ -25,40 +25,40 @@ export const Pokemon = styled.div<ColorPokemonProps>`
   align-items: flex-start;
   background-color: ${(props) =>
     props.bg === "fire"
-      ? props.theme.colors.pokemonType.fire
+      ? props.theme.colors?.pokemonType.fire
       : props.bg === "bug"
-      ? props.theme.colors.pokemonType.bug
+      ? props.theme.colors?.pokemonType.bug
       : props.bg === "dark"
-      ? props.theme.colors.pokemonType.dark
+      ? props.theme.colors?.pokemonType.dark
       : props.bg === "dragon"
-      ? props.theme.colors.pokemonType.dragon
+      ? props.theme.colors?.pokemonType.dragon
       : props.bg === "electric"
-      ? props.theme.colors.pokemonType.eletric
+      ? props.theme.colors?.pokemonType.eletric
       : props.bg === "fairy"
-      ? props.theme.colors.pokemonType.fairy
+      ? props.theme.colors?.pokemonType.fairy
       : props.bg === "fighting"
-      ? props.theme.colors.pokemonType.fighting
+      ? props.theme.colors?.pokemonType.fighting
       : props.bg === "flying"
-      ? props.theme.colors.pokemonType.flying
+      ? props.theme.colors?.pokemonType.flying
       : props.bg === "ghost"
-      ? props.theme.colors.pokemonType.normal
+      ? props.theme.colors?.pokemonType.normal
       : props.bg === "grass"
-      ? props.theme.colors.pokemonType.grass
+      ? props.theme.colors?.pokemonType.grass
       : props.bg === "ground"
-      ? props.theme.colors.pokemonType.ground
+      ? props.theme.colors?.pokemonType.ground
       : props.bg === "ice"
-      ? props.theme.colors.pokemonType.ice
+      ? props.theme.colors?.pokemonType.ice
       : props.bg === "poison"
-      ? props.theme.colors.pokemonType.poison
+      ? props.theme.colors?.pokemonType.poison
       : props.bg === "psychic"
-      ? props.theme.colors.pokemonType.psychic
+      ? props.theme.colors?.pokemonType.psychic
       : props.bg === "rock"
-      ? props.theme.colors.pokemonType.rock
+      ? props.theme.colors?.pokemonType.rock
       : props.bg === "steel"
-      ? props.theme.colors.pokemonType.steel
+      ? props.theme.colors?.pokemonType.steel
       : props.bg === "water"
-      ? props.theme.colors.pokemonType.water
-      : props.theme.colors.pokemonType.normal};
+      ? props.theme.colors?.pokemonType.water
+      : props.theme.colors?.pokemonType.normal};
 
       @media (max-width: 400px) {
         max-width: 100%;
@@ -77,13 +77,13 @@ export const ContainerTitle = styled.div`
 export const Title = styled.h1`
   font-size: 1.5rem;
   font-weight: 700;
-  color: ${(props) => props.theme.colors.grayscale.white};
+  color: ${(props) => props.theme.colors?.grayscale.white};
 `;
 
 export const Id = styled.p`
   font-size: 1rem;
   font-weight: 700;
-  color: ${(props) => props.theme.colors.grayscale.white};
+  color: ${(props) => props.theme.colors?.grayscale.white};
 `;
 
 export const Icon = styled.img`
@@ -116,7 +116,7 @@ export const About = styled.div`
   margin-top: -3rem;
   display: flex;
   padding: 40px 20px 20px 20px;
-  background-color: ${(props) => props.theme.colors.grayscale.white};
+  background-color: ${(props) => props.theme.colors?.grayscale.white};
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
@@ -135,45 +135,45 @@ export const ContainerType = styled.div`
 export const Type = styled.span<ColorPokemonProps>`
   padding: 2px 8px;
   border-radius: 10px;
-  color: ${(props) => props.theme.colors.grayscale.white};
+  color: ${(props) => props.theme.colors?.grayscale.white};
   font-weight: 700;
   font-size: 1rem;
   background-color: ${(props) =>
     props.bg === "fire"
-      ? props.theme.colors.pokemonType.fire
+      ? props.theme.colors?.pokemonType.fire
       : props.bg === "bug"
-      ? props.theme.colors.pokemonType.bug
+      ? props.theme.colors?.pokemonType.bug
       : props.bg === "dark"
-      ? props.theme.colors.pokemonType.dark
+      ? props.theme.colors?.pokemonType.dark
       : props.bg === "dragon"
-      ? props.theme.colors.pokemonType.dragon
+      ? props.theme.colors?.pokemonType.dragon
       : props.bg === "electric"
-      ? props.theme.colors.pokemonType.eletric
+      ? props.theme.colors?.pokemonType.eletric
       : props.bg === "fairy"
-      ? props.theme.colors.pokemonType.fairy
+      ? props.theme.colors?.pokemonType.fairy
       : props.bg === "fighting"
-      ? props.theme.colors.pokemonType.fighting
+      ? props.theme.colors?.pokemonType.fighting
       : props.bg === "flying"
-      ? props.theme.colors.pokemonType.flying
+      ? props.theme.colors?.pokemonType.flying
       : props.bg === "ghost"
-      ? props.theme.colors.pokemonType.normal
+      ? props.theme.colors?.pokemonType.normal
       : props.bg === "grass"
-      ? props.theme.colors.pokemonType.grass
+      ? props.theme.colors?.pokemonType.grass
       : props.bg === "ground"
-      ? props.theme.colors.pokemonType.ground
+      ? props.theme.colors?.pokemonType.ground
       : props.bg === "ice"
-      ? props.theme.colors.pokemonType.ice
+      ? props.theme.colors?.pokemonType.ice
       : props.bg === "poison"
-      ? props.theme.colors.pokemonType.poison
+      ? props.theme.colors?.pokemonType.poison
       : props.bg === "psychic"
-      ? props.theme.colors.pokemonType.psychic
+      ? props.theme.colors?.pokemonType.psychic
       : props.bg === "rock"
-      ? props.theme.colors.pokemonType.rock
+      ? props.theme.colors?.pokemonType.rock
       : props.bg === "steel"
-      ? props.theme.colors.pokemonType.steel
+      ? props.theme.colors?.pokemonType.steel
       : props.bg === "water"
-      ? props.theme.colors.pokemonType.water
-      : props.theme.colors.pokemonType.normal};
+      ? props.theme.colors?.pokemonType.water
+      : props.theme.colors?.pokemonType.normal};
 `;
 
 export const TitleAbout = styled.h1<ColorPokemonProps>`
@@ -183,40 +183,40 @@ export const TitleAbout = styled.h1<ColorPokemonProps>`
   font-weight: 700;
   color: ${(props) =>
     props.bg === "fire"
-      ? props.theme.colors.pokemonType.fire
+      ? props.theme.colors?.pokemonType.fire
       : props.bg === "bug"
-      ? props.theme.colors.pokemonType.bug
+      ? props.theme.colors?.pokemonType.bug
       : props.bg === "dark"
-      ? props.theme.colors.pokemonType.dark
+      ? props.theme.colors?.pokemonType.dark
       : props.bg === "dragon"
-      ? props.theme.colors.pokemonType.dragon
+      ? props.theme.colors?.pokemonType.dragon
       : props.bg === "electric"
-      ? props.theme.colors.pokemonType.eletric
+      ? props.theme.colors?.pokemonType.eletric
       : props.bg === "fairy"
-      ? props.theme.colors.pokemonType.fairy
+      ? props.theme.colors?.pokemonType.fairy
       : props.bg === "fighting"
-      ? props.theme.colors.pokemonType.fighting
+      ? props.theme.colors?.pokemonType.fighting
       : props.bg === "flying"
-      ? props.theme.colors.pokemonType.flying
+      ? props.theme.colors?.pokemonType.flying
       : props.bg === "ghost"
-      ? props.theme.colors.pokemonType.normal
+      ? props.theme.colors?.pokemonType.normal
       : props.bg === "grass"
-      ? props.theme.colors.pokemonType.grass
+      ? props.theme.colors?.pokemonType.grass
       : props.bg === "ground"
-      ? props.theme.colors.pokemonType.ground
+      ? props.theme.colors?.pokemonType.ground
       : props.bg === "ice"
-      ? props.theme.colors.pokemonType.ice
+      ? props.theme.colors?.pokemonType.ice
       : props.bg === "poison"
-      ? props.theme.colors.pokemonType.poison
+      ? props.theme.colors?.pokemonType.poison
       : props.bg === "psychic"
-      ? props.theme.colors.pokemonType.psychic
+      ? props.theme.colors?.pokemonType.psychic
       : props.bg === "rock"
-      ? props.theme.colors.pokemonType.rock
+      ? props.theme.colors?.pokemonType.rock
       : props.bg === "steel"
-      ? props.theme.colors.pokemonType.steel
+      ? props.theme.colors?.pokemonType.steel
       : props.bg === "water"
-      ? props.theme.colors.pokemonType.water
-      : props.theme.colors.pokemonType.normal};
+      ? props.theme.colors?.pokemonType.water
+      : props.theme.colors?.pokemonType.normal};
 `;
 
 export const Attributes = styled.div`
@@ -232,10 +232,10 @@ export const WeightAndHeight = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: ${(props) => props.theme.colors.grayscale.medium};
+  color: ${(props) => props.theme.colors?.grayscale.medium};
   font-size: 14px;
   font-weight: 400;
-  border-right: 1px solid ${(props) => props.theme.colors.grayscale.light};
+  border-right: 1px solid ${(props) => props.theme.colors?.grayscale.light};
 `;
 
 export const ContentWeightAndHeight = styled.div`
@@ -255,7 +255,7 @@ export const IconWeightAndHeight = styled.img`
 export const Paragraph = styled.p`
   font-size: 0.9rem;
   font-weight: 400;
-  color: ${(props) => props.theme.colors.grayscale.dark};
+  color: ${(props) => props.theme.colors?.grayscale.dark};
   flex-wrap: wrap;
   text-align: center;
 
@@ -270,7 +270,7 @@ export const Moves = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: ${(props) => props.theme.colors.grayscale.medium};
+  color: ${(props) => props.theme.colors?.grayscale.medium};
   font-size: 14px;
   font-weight: 400;
 `;
@@ -297,44 +297,44 @@ export const StatsTitle = styled.div<ColorPokemonProps>`
   align-items: center;
   justify-content: center;
   padding: 0 4px;
-  border-right: 1px solid ${(props) => props.theme.colors.grayscale.light};
+  border-right: 1px solid ${(props) => props.theme.colors?.grayscale.light};
   font-weight: 700;
   color: ${(props) =>
     props.bg === "fire"
-      ? props.theme.colors.pokemonType.fire
+      ? props.theme.colors?.pokemonType.fire
       : props.bg === "bug"
-      ? props.theme.colors.pokemonType.bug
+      ? props.theme.colors?.pokemonType.bug
       : props.bg === "dark"
-      ? props.theme.colors.pokemonType.dark
+      ? props.theme.colors?.pokemonType.dark
       : props.bg === "dragon"
-      ? props.theme.colors.pokemonType.dragon
+      ? props.theme.colors?.pokemonType.dragon
       : props.bg === "electric"
-      ? props.theme.colors.pokemonType.eletric
+      ? props.theme.colors?.pokemonType.eletric
       : props.bg === "fairy"
-      ? props.theme.colors.pokemonType.fairy
+      ? props.theme.colors?.pokemonType.fairy
       : props.bg === "fighting"
-      ? props.theme.colors.pokemonType.fighting
+      ? props.theme.colors?.pokemonType.fighting
       : props.bg === "flying"
-      ? props.theme.colors.pokemonType.flying
+      ? props.theme.colors?.pokemonType.flying
       : props.bg === "ghost"
-      ? props.theme.colors.pokemonType.normal
+      ? props.theme.colors?.pokemonType.normal
       : props.bg === "grass"
-      ? props.theme.colors.pokemonType.grass
+      ? props.theme.colors?.pokemonType.grass
       : props.bg === "ground"
-      ? props.theme.colors.pokemonType.ground
+      ? props.theme.colors?.pokemonType.ground
       : props.bg === "ice"
-      ? props.theme.colors.pokemonType.ice
+      ? props.theme.colors?.pokemonType.ice
       : props.bg === "poison"
-      ? props.theme.colors.pokemonType.poison
+      ? props.theme.colors?.pokemonType.poison
       : props.bg === "psychic"
-      ? props.theme.colors.pokemonType.psychic
+      ? props.theme.colors?.pokemonType.psychic
       : props.bg === "rock"
-      ? props.theme.colors.pokemonType.rock
+      ? props.theme.colors?.pokemonType.rock
       : props.bg === "steel"
-      ? props.theme.colors.pokemonType.steel
+      ? props.theme.colors?.pokemonType.steel
       : props.bg === "water"
-      ? props.theme.colors.pokemonType.water
-      : props.theme.colors.pokemonType.normal};
+      ? props.theme.colors?.pokemonType.water
+      : props.theme.colors?.pokemonType.normal};
 `;
 
 export const StatsNumber = styled.div`
@@ -344,7 +344,7 @@ export const StatsNumber = styled.div`
   justify-content: center;
   padding: 0 4px;
   font-weight: 400;
-  color: ${(props) => props.theme.colors.grayscale.dark};
+  color: ${(props) => props.theme.colors?.grayscale.dark};
 `;
 
 export const ContainerPercentages = styled.div`
@@ -359,7 +359,7 @@ export const Percentages = styled.div<ColorPokemonProps>`
   border-radius: 4px;
   opacity: 0.9;
   margin: 11px 0;
-  background-color: ${(props) => props.theme.colors.grayscale.medium};
+  background-color: ${(props) => props.theme.colors?.grayscale.medium};
 `;
 
 export const Percent = styled.div<ColorPokemonProps>`
@@ -367,38 +367,38 @@ export const Percent = styled.div<ColorPokemonProps>`
   height: 4px;
   background-color: ${(props) =>
     props.bg === "fire"
-      ? props.theme.colors.pokemonType.fire
+      ? props.theme.colors?.pokemonType.fire
       : props.bg === "bug"
-      ? props.theme.colors.pokemonType.bug
+      ? props.theme.colors?.pokemonType.bug
       : props.bg === "dark"
-      ? props.theme.colors.pokemonType.dark
+      ? props.theme.colors?.pokemonType.dark
       : props.bg === "dragon"
-      ? props.theme.colors.pokemonType.dragon
+      ? props.theme.colors?.pokemonType.dragon
       : props.bg === "electric"
-      ? props.theme.colors.pokemonType.eletric
+      ? props.theme.colors?.pokemonType.eletric
       : props.bg === "fairy"
-      ? props.theme.colors.pokemonType.fairy
+      ? props.theme.colors?.pokemonType.fairy
       : props.bg === "fighting"
-      ? props.theme.colors.pokemonType.fighting
+      ? props.theme.colors?.pokemonType.fighting
       : props.bg === "flying"
-      ? props.theme.colors.pokemonType.flying
+      ? props.theme.colors?.pokemonType.flying
       : props.bg === "ghost"
-      ? props.theme.colors.pokemonType.normal
+      ? props.theme.colors?.pokemonType.normal
       : props.bg === "grass"
-      ? props.theme.colors.pokemonType.grass
+      ? props.theme.colors?.pokemonType.grass
       : props.bg === "ground"
-      ? props.theme.colors.pokemonType.ground
+      ? props.theme.colors?.pokemonType.ground
       : props.bg === "ice"
-      ? props.theme.colors.pokemonType.ice
+      ? props.theme.colors?.pokemonType.ice
       : props.bg === "poison"
-      ? props.theme.colors.pokemonType.poison
+      ? props.theme.colors?.pokemonType.poison
       : props.bg === "psychic"
-      ? props.theme.colors.pokemonType.psychic
+      ? props.theme.colors?.pokemonType.psychic
       : props.bg === "rock"
-      ? props.theme.colors.pokemonType.rock
+      ? props.theme.colors?.pokemonType.rock
       : props.bg === "steel"
-      ? props.theme.colors.pokemonType.steel
+      ? props.theme.colors?.pokemonType.steel
       : props.bg === "water"
-      ? props.theme.colors.pokemonType.water
-      : props.theme.colors.pokemonType.normal};
+      ? props.theme.colors?.pokemonType.water
+      : props.theme.colors?.pokemonType.normal};
 `;

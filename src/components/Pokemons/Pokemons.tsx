@@ -19,7 +19,7 @@ import DataError from "../dataError/DataError";
 
 const Pokemons = ({ url }: { url: string }) => {
   const [data, setData] = useState<PokemonProps[] | null>(null);
-  const [error, setError] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<null | string>(null);
 
   // Função para mudar a rota
   const navigate = useNavigate();
@@ -28,9 +28,10 @@ const Pokemons = ({ url }: { url: string }) => {
     try {
       const response = await axios.get(url);
       setData([response.data]);
-    } catch (error) {
+      setErrorMessage(null);
+    } catch (error: any) {
       console.log(error);
-      setError(true);
+      setErrorMessage(error?.message);
     }
   };
 
@@ -43,7 +44,7 @@ const Pokemons = ({ url }: { url: string }) => {
     get();
   }, []);
 
-  if (error) return <DataError />;
+  if (errorMessage) return <DataError errorMessage={errorMessage} />;
   if (data === null) return <LoadingPokemon />;
   return (
     <>

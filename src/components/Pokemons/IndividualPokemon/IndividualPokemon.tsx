@@ -5,8 +5,8 @@ import axios from "axios";
 // Icones
 import ArrowBack from '../../../../public/arrow_back.svg'
 import BigPokebola from '../../../../public/big_pokebola.svg'
-import PreviousPokemon from '../../../../public/previous_pokemon.svg'
-import NextPokemon from '../../../../public/next_pokemon.svg'
+import PreviousPokemons from '../../../../public/previous_pokemon.svg'
+import NextPokemons from '../../../../public/next_pokemon.svg'
 import Weight from '../../../../public/weight.svg'
 import Height from '../../../../public/height.svg'
 
@@ -28,7 +28,7 @@ import DataError from "../../dataError/DataError";
 const IndividualPokemon = () => {
   const [data, setData] = useState<PokemonProps[] | null>(null);
   const [numPokemon, setNumPokemon] = useState<null | number>(null);
-  const [error, setError] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<null | string>(null);
 
   const navigate = useNavigate();
 
@@ -41,47 +41,51 @@ const IndividualPokemon = () => {
           `https://pokeapi.co/api/v2/pokemon/${numPokemon}/`
         );
         setData([response.data]);
-      } catch (error) {
+        setErrorMessage(null)
+      } catch (error: any) {
         console.log(error);
-        setError(true);
+        setErrorMessage(error?.message)
       }
     }
   };
 
+  // volta para o pokémon anterior
   const previousPokemon = () => {
     if (numPokemon !== null) {
-      const novo = window.localStorage.setItem(
+      const newPokemon = window.localStorage.setItem(
         "Pokemon",
         String(numPokemon - 1)
       );
-      setNumPokemon(Number(novo));
+      setNumPokemon(Number(newPokemon));
     }
   };
 
+  // passa para a o próximo pokémon
   const nextPokemon = () => {
     if (numPokemon !== null) {
-      const novo = window.localStorage.setItem(
+      const newPokemon = window.localStorage.setItem(
         "Pokemon",
         String(numPokemon + 1)
       );
-      setNumPokemon(Number(novo));
+      setNumPokemon(Number(newPokemon));
     }
   };
 
+  // volta para a home
   const handleHomeClick = () => {
     navigate("/API_Poke");
   };
 
+  // executa a chamada para a API
   useEffect(() => {
     get();
   }, [numPokemon]);
 
-  if (error) return <DataError />;
-  if (data === null) return null;
+  if (errorMessage) return <DataError errorMessage={errorMessage} />; // mostra isso caso de erro na requisição
   return (
     <>
-      {data.map((res) => (
-        <S.Container key={res.id}>
+      {data && data.map((res) => (
+        <S.Container key={res.id} data-testid="test">
           <StyleSheetManager shouldForwardProp={(prop) => prop !== "bg"}>
             <S.Pokemon bg={data.map((i) => i.types[0].type.name)[0]}>
               <S.ContainerTitle>
@@ -102,7 +106,7 @@ const IndividualPokemon = () => {
               <S.ContainerImgPokemon>
                 {numPokemon && numPokemon > 1 ? (
                   <S.Icon
-                    src={PreviousPokemon}
+                    src={PreviousPokemons}
                     alt="seta para voltar para outro pokémon"
                     onClick={previousPokemon}
                   />
@@ -111,7 +115,7 @@ const IndividualPokemon = () => {
                 )}
                 <S.ImgPokemon src={res.sprites.front_default} />
                 <S.Icon
-                  src={NextPokemon}
+                  src={NextPokemons}
                   alt="seta para passar para outro pokémon"
                   onClick={nextPokemon}
                 />

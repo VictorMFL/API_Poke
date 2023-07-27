@@ -31,7 +31,7 @@ const MainPage = () => {
   return (
     <StyleSheetManager shouldForwardProp={(prop) => prop !== "numbergrid"}>
       <S.Container numbergrid={numberGrid}>
-        {data.map((res) =>
+        {data && data.map((res) =>
           res.results.map((poke) => <Pokemons key={poke.name} url={poke.url} />)
         )}
       </S.Container>

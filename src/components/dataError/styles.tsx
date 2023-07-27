@@ -8,6 +8,6 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: ${(props) => props.theme.fonts.poppins};
-  color: ${(props) => props.theme.colors.grayscale.dark};
+  font-family: ${(props) => props.theme.fonts?.poppins};
+  color: ${(props) => props.theme.colors?.grayscale.dark};
 `

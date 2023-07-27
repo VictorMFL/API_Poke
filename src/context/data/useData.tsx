@@ -1,4 +1,10 @@
-import { createContext, useContext, useState, ChangeEvent, useEffect } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  ChangeEvent,
+  useEffect,
+} from "react";
 
 import axios from "axios";
 
@@ -14,14 +20,14 @@ export type DataContextProps = {
   nextPage: () => Promise<void>;
   previousPage: () => Promise<void>;
   pokemonLimit: string;
-  setPokemonLimit: React.Dispatch<React.SetStateAction<string>>
+  setPokemonLimit: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export const DataContext = createContext({} as DataContextProps);
 
 export const DataProvider = ({ children }: { children: React.ReactNode }) => {
   const [data, setData] = useState<DataProps[] | null>(null);
-  const [error, setError] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<null | string>(null);
   const [pokemonLimit, setPokemonLimit] = useState<string>("20");
 
   let apiUrl = `https://pokeapi.co/api/v2/pokemon?offset=0&limit=${pokemonLimit}`;
@@ -30,9 +36,10 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       const response = await axios.get(apiUrl);
       setData([response.data]);
-    } catch (error) {
+      setErrorMessage(null);
+    } catch (error: any) {
       console.log(error);
-      setError(true);
+      setErrorMessage(error?.message);
     }
   };
 
@@ -44,9 +51,10 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
       try {
         const response = await axios.get(String(nextPage));
         setData([response.data]);
-      } catch (error) {
+        setErrorMessage(null);
+      } catch (error: any) {
         console.log(error);
-        setError(true);
+        setErrorMessage(error?.message);
       }
     }
   };
@@ -59,19 +67,20 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
       try {
         const response = await axios.get(String(previousPage));
         setData([response.data]);
-      } catch (error) {
+        setErrorMessage(null);
+      } catch (error: any) {
         console.log(error);
-        setError(true);
+        setErrorMessage(error?.message);
       }
     }
   };
 
   // Atualiza a requisição de acordo como a quantidade que o usuário definir
   useEffect(() => {
-    getApi()
-  }, [pokemonLimit])
+    getApi();
+  }, [pokemonLimit]);
 
-  if (error) return <DataError />;
+  if (errorMessage) return <DataError errorMessage={errorMessage} />;
   return (
     <DataContext.Provider
       value={{

@@ -1,12 +1,9 @@
 import * as S from "./styles";
 
-const DataError = () => {
+const DataError = ({ errorMessage }: { errorMessage: string }) => {
   return (
     <S.Container>
-      <h2>
-        Ocorreu um erro durante a requisição. Recarregue a página se o erro
-        persistir, volte mais tarde.
-      </h2>
+      <h2>{errorMessage}</h2>
     </S.Container>
   );
 };
